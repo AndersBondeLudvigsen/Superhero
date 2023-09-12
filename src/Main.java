@@ -19,9 +19,9 @@ public class Main {
     }
 
     void addFiveHeroes(Database superHelteListe) {
-        IO io = new IO();
+        Scanner keyboard = new Scanner(System.in);
         System.out.println("Hvor mange superhelte ville du lave");
-        int numberOfHeroes = io.readInt();
+        int numberOfHeroes = keyboard;
         for (int i = 0; i < numberOfHeroes; i++) {
             Scanner keyboard = new Scanner(System.in);
             String name = "";
@@ -39,11 +39,12 @@ public class Main {
             System.out.println("Hvad er din superhelts superkraft?");
             specialPower = keyboard.nextLine();
             System.out.println("Hvilket år er din superhelt fra");
-            year = io.readInt();
+            year = keyboard.nextInt();
+            keyboard.nextLine();
             System.out.println("Er din superhelt et menneske (Ja/Nej)?");
             isHuman = keyboard.nextLine();
             System.out.println("Hvor stærk er din superhelt fra 1-1000");
-            strength = io.readInt();
+            strength = keyboard.nextInt();
 
             superHelteListe.tilføjSuperhero(name, superHeroName, specialPower, year, isHuman, strength);
 
