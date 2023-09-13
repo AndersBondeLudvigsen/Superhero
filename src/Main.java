@@ -1,9 +1,11 @@
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     private Controller controller;
+    Database database = new Database();
 
     public static void main(String[] args) {
         Main program = new Main();
@@ -13,18 +15,43 @@ public class Main {
     void run() {
         Scanner keyboard = new Scanner(System.in);
         ArrayList<Superhero> superheroList = new ArrayList<>();
+        boolean exit = false;
 
+        while (!exit) {
+            System.out.println("For at oprette superhelte tast (1)");
+            System.out.println("For at se dine superhelte tast (2)");
+            System.out.println("For at søge efter en superhelt tast (3)");
+            System.out.println("For at afslutte tast (9)");
 
-        System.out.println("For at oprette superhelte tast (1)");
-        System.out.println("For at se dine superhelte tast (2)");
-        System.out.println("For at afslutte tast (9)");
+            int choice = keyboard.nextInt();
+            keyboard.nextLine();
 
-        int choice = keyboard.nextInt();
-        if (choice == 1) {
-            addFiveHeroes(superheroList);
-            printSuperheroes(superheroList);
-        } else if (choice == 2) {
-            printSuperheroes(superheroList);
+            switch (choice) {
+                case 1:
+                    addFiveHeroes(superheroList);
+                    break;
+                case 2:
+                    printSuperheroes(superheroList);
+                    break;
+                case 3:
+                    System.out.println("Skriv navnet på din superhelt eller noget af navnet");
+                    String søgeString = keyboard.nextLine();
+                    List<Superhero> matchMellemBrugerogSuperhero = database.søgSuperhero(søgeString);
+                    if (!matchMellemBrugerogSuperhero.isEmpty()) {
+                        System.out.println("Superhero(s) er fundet:");
+                        for (Superhero superhero : matchMellemBrugerogSuperhero) {
+                            System.out.println(superhero);
+                        }
+                    } else {
+                        System.out.println("Der blev ikke fundet noget match");
+                    }
+                    break;
+                case 9:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Ugyldigt valg. Prøv igen.");
+            }
         }
     }
 

@@ -10,8 +10,4 @@ public class Controller {
     public ArrayList<Superhero> getSuperhelteListe() {
         return db.getSuperhelteliste();
     }
-
-    public void tilføjSuperhero(String navn, String superheltNavn, String superPower, int oprindelse, boolean menneske, int styrke) {
-
-    }
 }

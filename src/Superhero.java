@@ -29,4 +29,7 @@ public class Superhero {
                 ", styrke=" + styrke +
                 '}';
     }
+    public String getNavn(){
+        return navn;
+    }
 }

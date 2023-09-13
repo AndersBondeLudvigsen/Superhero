@@ -17,7 +17,17 @@ public class Database {
     public ArrayList<Superhero> getSuperhelteliste() {
         return superheroListe;
     }
+    public List<Superhero> søgSuperhero(String brugervalg) {
+        List<Superhero> matchingSuperheroes = new ArrayList<>();
+
+        // Iterer gennem alle superhelte og tjek om brugervalget matcher en del af navnet
+        for (Superhero superhero : superheroListe) {
+            if (superhero.getNavn().toLowerCase().contains(brugervalg.toLowerCase())) {
+                matchingSuperheroes.add(superhero);
+            }
+        }
+
+        return matchingSuperheroes;
+    }
 }
-
-
 
