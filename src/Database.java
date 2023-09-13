@@ -1,20 +1,23 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Database {
-    private Superhero[] Superhelteliste;
-    int count = 0;
+    private ArrayList<Superhero> superheroListe;
+
 
     public Database() {
-        this.Superhelteliste = new Superhero[5];
+        superheroListe = new ArrayList<>();
     }
 
-    public void tilføjSuperhero(String navn, String superheltNavn, String superPower, int oprindelse, String ishuman, int styrke) {
-        Superhelteliste[count++] = new Superhero(navn, superheltNavn, superPower, oprindelse, ishuman, styrke);
+    public void tilføjSuperhero(String navn, String superheltNavn, String superPower, int oprindelse, boolean menneske, int styrke) {
+        Superhero superhero = new Superhero(navn, superheltNavn, superPower, oprindelse, menneske, styrke);
+        superheroListe.add(superhero);
     }
 
-    public void printeHelte() {
-        for (Superhero hero : Superhelteliste) {
-            System.out.println(hero);
-        }
+    public ArrayList<Superhero> getSuperhelteliste() {
+        return superheroListe;
     }
-
 }
+
+
 
