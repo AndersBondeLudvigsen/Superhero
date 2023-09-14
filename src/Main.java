@@ -75,9 +75,12 @@ public class Main {
             boolean isHuman = keyboard.nextBoolean();
             System.out.println("Hvor stærk er din superhelt fra 1-1000?");
             int strength = keyboard.nextInt();
+            keyboard.nextLine();
 
             Superhero superhero = new Superhero(realName, superheroName, superpower, year, isHuman, strength);
             superheroList.add(superhero);
+
+            database.tilføjSuperhero(superhero);
         }
     }
 

@@ -9,10 +9,12 @@ public class Database {
         superheroListe = new ArrayList<>();
     }
 
-    public void tilføjSuperhero(String navn, String superheltNavn, String superPower, int oprindelse, boolean menneske, int styrke) {
-        Superhero superhero = new Superhero(navn, superheltNavn, superPower, oprindelse, menneske, styrke);
+    public void tilføjSuperhero(Superhero superhero) {
         superheroListe.add(superhero);
     }
+
+
+
 
     public ArrayList<Superhero> getSuperhelteliste() {
         return superheroListe;
@@ -20,7 +22,7 @@ public class Database {
     public List<Superhero> søgSuperhero(String brugervalg) {
         List<Superhero> matchingSuperheroes = new ArrayList<>();
 
-        // Iterer gennem alle superhelte og tjek om brugervalget matcher en del af navnet
+
         for (Superhero superhero : superheroListe) {
             if (superhero.getNavn().toLowerCase().contains(brugervalg.toLowerCase())) {
                 matchingSuperheroes.add(superhero);
