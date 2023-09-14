@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class UserInterface {
     private Controller controller;
     Database database = new Database();
+
     void run() {
         Scanner keyboard = new Scanner(System.in);
         ArrayList<Superhero> superheroList = new ArrayList<>();
@@ -42,9 +43,33 @@ public class UserInterface {
                     break;
                 case 4:
                     System.out.println("Skriv navnet på den superhero du ville redigere");
-                    System.out.println(superheroList);
                     String rediger = keyboard.nextLine();
-                database.redigerSuperhero(rediger);
+                    System.out.println("Hvad ville du ændre ved din superhelt?");
+                    System.out.println("(1) for rigtige navn");
+                    System.out.println("(2) for superheltenavn");
+                    System.out.println("(3) for superheltekraft");
+                    System.out.println("(4) for at ændre hvor din superhelt er fra");
+                    System.out.println("(5) for om det er et menneske eller ej");
+                    System.out.println("(6) for at ændre styrken på din superhelt");
+                    int ændring = keyboard.nextInt();
+                    if (ændring == 1) {
+                    database.redigerSuperheronavn(rediger);
+                }
+                    if (ændring == 2){
+                        database.redigerSuperheroHeltenavn(rediger);
+                    }
+                    if (ændring == 3){
+                        database.redigerSuperheroHelteKraft(rediger);
+                    }
+                    if (ændring == 4){
+                        database.redigerSuperheroHeltÅr(rediger);
+                    }
+                    if (ændring == 5){
+                        database.redigerSuperheroHeltmenneske(rediger);
+                    }
+                    if (ændring == 6){
+                        database.redigerSuperheroHeltestyrke(rediger);
+                    }
                     break;
                 case 9:
                     exit = true;
