@@ -34,4 +34,27 @@ public class Superhero {
     public String getNavn(){
         return navn;
     }
+    public void setNavn(String navn){
+        this.navn=navn;
+    }
+
+    public void setMenneske(boolean menneske) {
+        this.menneske = menneske;
+    }
+    public void setSuperheroNavn(String superheroNavn){
+        this.superheroNavn = superheroNavn;
+    }
+
+    public void setOprindelse(int oprindelse) {
+        this.oprindelse = oprindelse;
+    }
+
+    public String getSuperpower(String superpower) {
+        return superpower;
+    }
+
+    public void setStyrke(int styrke) {
+        this.styrke = styrke;
+    }
 }
+

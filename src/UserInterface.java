@@ -41,14 +41,10 @@ public class UserInterface {
                     }
                     break;
                 case 4:
+                    System.out.println("Skriv navnet på den superhero du ville redigere");
                     System.out.println(superheroList);
-                    System.out.println("Hvad hedder superhelten du ville redigere i?");
-                    String superheltRediger = keyboard.nextLine();
-                    // skal bruge set og superhelte liste
-
-
-
-
+                    String rediger = keyboard.nextLine();
+                database.redigerSuperhero(rediger);
                     break;
                 case 9:
                     exit = true;
