@@ -14,11 +14,10 @@ public class Database {
     }
 
 
-
-
     public ArrayList<Superhero> getSuperhelteliste() {
         return superheroListe;
     }
+
     public List<Superhero> søgSuperhero(String brugervalg) {
         List<Superhero> matchingSuperheroes = new ArrayList<>();
 
@@ -33,3 +32,13 @@ public class Database {
     }
 }
 
+    /*public Superhero return1Superhero(String brugervalg) {
+        //Superhero superhero = new Superhero();
+        for (Superhero superhero : superheroListe) {
+            if (superhero.getNavn().toLowerCase().contains(brugervalg.toLowerCase())) {
+            }
+            return return1Superhero();
+        }
+    }
+}
+*/

@@ -17,7 +17,9 @@ public class Superhero {
         this.menneske = menneske;
         this.styrke = styrke;
     }
+    public Superhero(){
 
+    }
     @Override
     public String toString() {
         return "Superhero{" +
