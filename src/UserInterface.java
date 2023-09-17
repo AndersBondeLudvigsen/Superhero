@@ -18,8 +18,8 @@ public class UserInterface {
             System.out.println("For at redigere i en oprettet superhelt (4)");
             System.out.println("For at afslutte tast (9)");
 
-            int choice = keyboard.nextInt();
-            keyboard.nextLine();
+            int choice = database.getIntInput();
+            //keyboard.nextLine();
 
             switch (choice) {
                 case 1:
@@ -42,6 +42,7 @@ public class UserInterface {
                     }
                     break;
                 case 4:
+
                     System.out.println("Skriv navnet på den superhero du ville redigere");
                     String rediger = keyboard.nextLine();
                     System.out.println("Hvad ville du ændre ved din superhelt?");
@@ -51,9 +52,10 @@ public class UserInterface {
                     System.out.println("(4) for at ændre hvor din superhelt er fra");
                     System.out.println("(5) for om det er et menneske eller ej");
                     System.out.println("(6) for at ændre styrken på din superhelt");
-                    int ændring = keyboard.nextInt();
+                    int ændring = database.getIntInput();
+
                     if (ændring == 1) {
-                    database.redigerSuperheronavn(rediger);
+                        database.redigerSuperheronavn(rediger);
                 }
                     if (ændring == 2){
                         database.redigerSuperheroHeltenavn(rediger);
@@ -83,8 +85,8 @@ public class UserInterface {
     void addFiveHeroes(List<Superhero> superheroList) {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Hvor mange superhelte vil du oprette?");
-        int numberOfHeroes = keyboard.nextInt();
-        keyboard.nextLine();
+        int numberOfHeroes = database.getIntInput();
+
 
         for (int i = 0; i < numberOfHeroes; i++) {
             System.out.println("Hvad er din superhelts rigtige navn?");
@@ -94,13 +96,12 @@ public class UserInterface {
             System.out.println("Hvad er din superhelts superkraft?");
             String superpower = keyboard.nextLine();
             System.out.println("Hvilket år er din superhelt fra?");
-            int year = keyboard.nextInt();
-            keyboard.nextLine();
+            int year = database.getIntInput();
             System.out.println("Er din superhelt et menneske (true/false)?");
-            boolean isHuman = keyboard.nextBoolean();
+            boolean isHuman = database.getBooleanInput();
             System.out.println("Hvor stærk er din superhelt fra 1-1000?");
-            int strength = keyboard.nextInt();
-            keyboard.nextLine();
+            int strength = database.getIntInput();
+
 
             Superhero superhero = new Superhero(realName, superheroName, superpower, year, isHuman, strength);
             superheroList.add(superhero);

@@ -60,7 +60,7 @@ public class Database {
         for (Superhero superhero : superheroListe){
             if (navn.equals(superhero.getNavn())){
                 System.out.println("Hvornår er din superhelt fra?");
-                superhero.setOprindelse(keyboard.nextInt());
+                superhero.setOprindelse(getIntInput());
             }
         }
     }
@@ -76,12 +76,41 @@ public class Database {
         for (Superhero superhero : superheroListe){
             if (navn.equals(superhero.getNavn())){
                 System.out.println("Hvor stærk er din superhelt fra 1-1000?");
-                superhero.setStyrke(keyboard.nextInt());
+                superhero.setStyrke(getIntInput());
             }
         }
     }
-
-
+    public int getIntInput(){
+        while (true){
+            try {
+                return keyboard.nextInt();
+            } catch (java.util.InputMismatchException e){
+                System.out.println(" ugyldigt input skriv et heltal");
+                keyboard.nextLine();
+            }
+        }
+    }
+    public double getDoubleInput(){
+        while (true){
+            try {
+                return keyboard.nextDouble();
+            } catch (java.util.InputMismatchException e){
+                System.out.println("ugyldigt input skriv et tal");
+                keyboard.nextDouble();
+            }
+        }
+    }
+    public boolean getBooleanInput(){
+        while (true){
+            try {
+                boolean input = keyboard.nextBoolean();
+                return input;
+            } catch (Exception e){
+                System.out.println("ugyldigt input, skriv true/false");
+                keyboard.nextLine();
+            }
+        }
+    }
 }
 
 
