@@ -49,8 +49,8 @@ public class Superhero {
         this.oprindelse = oprindelse;
     }
 
-    public String getSuperpower(String superpower) {
-        return superpower;
+    public void setSuperpower(String superpower) {
+        this.superpower = superpower;
     }
 
     public void setStyrke(int styrke) {

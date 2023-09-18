@@ -36,6 +36,7 @@ public class Database {
         for (Superhero superhero : superheroListe) {
             if (navn.equals(superhero.getNavn())) {
                 System.out.println("Hvad er din superhelts rigtige navn?");
+                keyboard.nextLine();
                 superhero.setNavn(keyboard.nextLine());
             }
             }
@@ -44,6 +45,7 @@ public class Database {
         for (Superhero superhero : superheroListe){
             if (navn.equals(superhero.getNavn())){
                 System.out.println("Hvad er din superhelts superheltsnavn?");
+                keyboard.nextLine();
                 superhero.setSuperheroNavn(keyboard.nextLine());
             }
         }
@@ -52,7 +54,8 @@ public class Database {
         for (Superhero superhero : superheroListe){
             if (navn.equals(superhero.getNavn())){
                 System.out.println("Hvad er din superhelts superkraft?");
-                superhero.getSuperpower(keyboard.nextLine());
+                keyboard.nextLine();
+                superhero.setSuperpower(keyboard.nextLine());
             }
         }
     }
