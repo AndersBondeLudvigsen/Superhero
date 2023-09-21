@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Database {
@@ -19,8 +18,8 @@ public class Database {
         return superheroListe;
     }
 
-    public List<Superhero> søgSuperhero(String brugervalg) {
-        List<Superhero> matchingSuperheroes = new ArrayList<>();
+    public ArrayList<Superhero> søgSuperhero(String brugervalg) {
+        ArrayList<Superhero> matchingSuperheroes = new ArrayList<>();
 
 
         for (Superhero superhero : superheroListe) {
@@ -32,14 +31,17 @@ public class Database {
         return matchingSuperheroes;
     }
 
-    public void redigerSuperheronavn(String navn) {
+    public String redigerSuperheronavn(String navn) {
+        String newName = " ";
         for (Superhero superhero : superheroListe) {
             if (navn.equals(superhero.getNavn())) {
                 System.out.println("Hvad er din superhelts rigtige navn?");
-                keyboard.nextLine();
+                newName = keyboard.nextLine();
                 superhero.setNavn(keyboard.nextLine());
             }
+
             }
+        return newName;
         }
     public void redigerSuperheroHeltenavn(String navn){
         for (Superhero superhero : superheroListe){
@@ -83,6 +85,32 @@ public class Database {
             }
         }
     }
+    public void sletSuperhero(){
+
+        String brugervalg = keyboard.nextLine().toLowerCase();
+        ArrayList<Superhero> matchSuperhero = søgSuperhero(brugervalg);
+
+        if (!matchSuperhero.isEmpty()){
+            System.out.println("Disse superhelte er fundet");
+            for (int i = 0; i < matchSuperhero.size(); i++){
+                Superhero superhero = matchSuperhero.get(i);
+                System.out.println(i+"."+ superhero.getNavn());
+            }
+            System.out.println("Enter the number of the superhero you want to remove: ");
+            int superheroDelete = keyboard.nextInt();
+            keyboard.nextLine();
+            for (int i = 0; i <superheroListe.size(); i++) {
+                System.out.println(superheroListe.get(superheroDelete));
+                superheroListe.remove(superheroDelete);
+            }
+
+            }
+
+
+    }
+
+
+
     public int getIntInput(){
         while (true){
             try {

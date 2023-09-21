@@ -8,7 +8,7 @@ public class UserInterface {
 
     void run() {
         Scanner keyboard = new Scanner(System.in);
-        ArrayList<Superhero> superheroList = new ArrayList<>();
+        //ArrayList<Superhero> superheroList = new ArrayList<>();
         boolean exit = false;
 
         while (!exit) {
@@ -16,6 +16,7 @@ public class UserInterface {
             System.out.println("For at se dine superhelte tast (2)");
             System.out.println("For at søge efter en superhelt tast (3)");
             System.out.println("For at redigere i en oprettet superhelt (4)");
+            System.out.println("For at slette en superhero tast (5)");
             System.out.println("For at afslutte tast (9)");
 
             int choice = database.getIntInput();
@@ -23,10 +24,10 @@ public class UserInterface {
 
             switch (choice) {
                 case 1:
-                    addFiveHeroes(superheroList);
+                    addFiveHeroes();
                     break;
                 case 2:
-                    printSuperheroes(superheroList);
+                    printSuperheroes(database.getSuperhelteliste());
                     break;
                 case 3:
                     System.out.println("Skriv navnet på din superhelt eller noget af navnet");
@@ -73,6 +74,9 @@ public class UserInterface {
                         database.redigerSuperheroHeltestyrke(rediger);
                     }
                     break;
+                case 5:
+                    database.sletSuperhero();
+                    break;
                 case 9:
                     exit = true;
                     break;
@@ -82,7 +86,7 @@ public class UserInterface {
         }
     }
 
-    void addFiveHeroes(List<Superhero> superheroList) {
+    void addFiveHeroes() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Hvor mange superhelte vil du oprette?");
         int numberOfHeroes = database.getIntInput();
@@ -104,8 +108,7 @@ public class UserInterface {
 
 
             Superhero superhero = new Superhero(realName, superheroName, superpower, year, isHuman, strength);
-            superheroList.add(superhero);
-
+            //superheroList.add(superhero);
             database.tilføjSuperhero(superhero);
         }
     }
