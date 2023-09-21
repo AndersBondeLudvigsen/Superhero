@@ -17,9 +17,7 @@ public class Superhero {
         this.menneske = menneske;
         this.styrke = styrke;
     }
-    public Superhero(){
 
-    }
     @Override
     public String toString() {
         return "Superhero{" +
@@ -31,17 +29,20 @@ public class Superhero {
                 ", styrke=" + styrke +
                 '}';
     }
-    public String getNavn(){
+
+    public String getNavn() {
         return navn;
     }
-    public void setNavn(String navn){
-        this.navn=navn;
+
+    public void setNavn(String navn) {
+        this.navn = navn;
     }
 
     public void setMenneske(boolean menneske) {
         this.menneske = menneske;
     }
-    public void setSuperheroNavn(String superheroNavn){
+
+    public void setSuperheroNavn(String superheroNavn) {
         this.superheroNavn = superheroNavn;
     }
 

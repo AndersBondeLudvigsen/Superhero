@@ -8,7 +8,6 @@ public class UserInterface {
 
     void run() {
         Scanner keyboard = new Scanner(System.in);
-        //ArrayList<Superhero> superheroList = new ArrayList<>();
         boolean exit = false;
 
         while (!exit) {
@@ -20,7 +19,7 @@ public class UserInterface {
             System.out.println("For at afslutte tast (9)");
 
             int choice = database.getIntInput();
-            //keyboard.nextLine();
+
 
             switch (choice) {
                 case 1:
@@ -57,20 +56,20 @@ public class UserInterface {
 
                     if (ændring == 1) {
                         database.redigerSuperheronavn(rediger);
-                }
-                    if (ændring == 2){
+                    }
+                    if (ændring == 2) {
                         database.redigerSuperheroHeltenavn(rediger);
                     }
-                    if (ændring == 3){
+                    if (ændring == 3) {
                         database.redigerSuperheroHelteKraft(rediger);
                     }
-                    if (ændring == 4){
+                    if (ændring == 4) {
                         database.redigerSuperheroHeltÅr(rediger);
                     }
-                    if (ændring == 5){
+                    if (ændring == 5) {
                         database.redigerSuperheroHeltmenneske(rediger);
                     }
-                    if (ændring == 6){
+                    if (ændring == 6) {
                         database.redigerSuperheroHeltestyrke(rediger);
                     }
                     break;
@@ -108,7 +107,6 @@ public class UserInterface {
 
 
             Superhero superhero = new Superhero(realName, superheroName, superpower, year, isHuman, strength);
-            //superheroList.add(superhero);
             database.tilføjSuperhero(superhero);
         }
     }

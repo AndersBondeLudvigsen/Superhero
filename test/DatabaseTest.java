@@ -10,8 +10,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class DatabaseTest {
-private Database database;
-private ArrayList<Superhero> testListe = new ArrayList<>();
+    private Database database;
+    private ArrayList<Superhero> testListe = new ArrayList<>();
+
     @BeforeEach
     void setUp() {
         database = new Database();
@@ -21,32 +22,32 @@ private ArrayList<Superhero> testListe = new ArrayList<>();
 
     @AfterEach
     void tearDown() {
-    database = null;
+        database = null;
     }
 
     @Test
     void tilføjSuperhero() {
-        Superhero superhero = new Superhero("Anders", "And" , "Svømme", 2001, true , 873);
-    database.tilføjSuperhero(superhero);
-    int expectedDatabaseStørelse = 1;
-    int actualStørelse = database.getSuperhelteliste().size();
-    assertEquals(expectedDatabaseStørelse, actualStørelse);
+        Superhero superhero = new Superhero("Anders", "And", "Svømme", 2001, true, 873);
+        database.tilføjSuperhero(superhero);
+        int expectedDatabaseStørelse = 1;
+        int actualStørelse = database.getSuperhelteliste().size();
+        assertEquals(expectedDatabaseStørelse, actualStørelse);
     }
 
     @Test
     void søgSuperhero() {
         boolean expected = false;
-        if (testListe.get(0)!= null){
+        if (testListe.get(0) != null) {
             expected = true;
         }
         boolean actual = true;
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
 
     @Test
     void redigerSuperheronavn() {
-        Superhero superhero = new Superhero("Anders", "And" , "Svømme", 2001, true , 873);
-        database.tilføjSuperhero(superhero);
+        Superhero superhero = new Superhero("Anders", "And", "Svømme", 2001, true, 873);
+        database.redigerSuperheronavn(superhero.getNavn());
         String expectedname = database.redigerSuperheronavn("Anders");
         String actualName = "Rasmus";
         assertEquals(expectedname, actualName);
@@ -72,8 +73,9 @@ private ArrayList<Superhero> testListe = new ArrayList<>();
     @Test
     void redigerSuperheroHeltestyrke() {
     }
+
     @Test
-    void sletSuperhero(){
+    void sletSuperhero() {
 
     }
 }
